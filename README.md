@@ -7,6 +7,7 @@ The sensor provides 15 IR reflectance elements and reports centroid position, ov
 
 - `floor_pro_v3.py` — `FloorProV3` driver class (subclasses `PUPDevice`)
 - `demo.py` — Interactive demos, cycle through with the left/right hub buttons
+- `calibration.py` — Calibrate the sensor via software control (you can also calibrate via the physical button on the sensor)
 
 ## Requirements
 

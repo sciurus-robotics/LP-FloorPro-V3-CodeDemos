@@ -99,6 +99,14 @@ class FloorProV3(PUPDevice):
         data = await self.safe_read(2)
         return ''.join(chr(b) for b in data if b != 0)
 
+    async def calibration_start(self):
+        """ Start the sensor calibration process. """
+        await self.send_cmd("CALIBSTART")
+
+    async def calibration_stop(self):
+        """ Stop the sensor calibration process and persist the calibration data to non-volatile memory. """
+        await self.send_cmd("CALIBSTOP")
+
     async def set_display_brightness(self, brightness: int):
         """ Set the display brightness. Brightness must be an integer between 0 and 100.
 

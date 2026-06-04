@@ -5,10 +5,7 @@ from floor_pro_v3 import FloorProV3
 
 hub = InventorHub()
 
-hub.display.number(100)
-
 floor_pro = FloorProV3(Port.A)
-
 
 async def demo_dark_centroid():
     print("Method:      dark_centroid()")

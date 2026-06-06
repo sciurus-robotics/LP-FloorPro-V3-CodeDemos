@@ -13,7 +13,7 @@ class FloorProV3(PUPDevice):
         self.current_mode = 0
         self.dev_info = self.info()
 
-    # almost concurrent wite (and read?) requests can throw OSErrors in the
+    # almost concurrent write (and read?) requests can throw OSErrors in the
     # pupdevice; retry a few times before giving up.
     async def safe_write(self, mode, data):
         for _ in range(10):
@@ -124,7 +124,7 @@ class FloorProV3(PUPDevice):
     async def set_display_brightness(self, brightness: int):
         """ Set the display brightness. Brightness must be an integer between 0 and 100.
 
-        The display brightneess will be persistently stored in the sensor's non-volatile memory, so it will remain at the set level even after power cycles.
+        The display brightness will be persistently stored in the sensor's non-volatile memory, so it will remain at the set level even after power cycles.
         """
         if brightness < 0 or brightness > 100 or not isinstance(brightness, int):
             raise ValueError("Brightness must be an integer between 0 and 100")
@@ -133,7 +133,7 @@ class FloorProV3(PUPDevice):
     async def set_rate(self, rate):
         """ Set the sensor sampling rate (target frequency). Accepted values: 'SYNC', '100', '200', 'MAX', 100, or 200. 
 
-        Use with caution. High values could potentially cause heigher loads on the hub. 
+        Use with caution. High values could potentially cause higher loads on the hub. 
 
         The rate setting will not be persistently stored, so it will reset to the default value after power cycles.
         """

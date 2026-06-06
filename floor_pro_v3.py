@@ -3,6 +3,10 @@ from pybricks.iodevices import PUPDevice
 
 
 class FloorProV3(PUPDevice):
+    __EXT1_END = 16 - 5
+    __EXT2_END = 16
+    EXT1=1
+    EXT2=2
 
     def __init__(self, port):
         super().__init__(port)
@@ -91,6 +95,16 @@ class FloorProV3(PUPDevice):
         """ Returns a tuple of the reflectance values of all 15 IR line sensors as 8-bit signed integers (-127 to 127) from mode 1. """
         data = await self.safe_read(1)
         return tuple(data[i + 1] for i in range(15))
+
+    async def ext_port_data(self, ext_port_number):
+        if ext_port_number == 1:
+            last_byte = self.__EXT1_END
+        elif ext_port_number == 2:
+            last_byte = self.__EXT2_END
+        else:
+            raise ValueError("ext_port_number must be 1 or 2")
+        data = (await self.safe_read(0))[last_byte-5:last_byte]
+        return tuple(b & 0xFF for b in data)
 
     ### setter and auxiliary methods ###################################################
 

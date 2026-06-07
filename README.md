@@ -9,6 +9,10 @@ The sensor provides 15 IR reflectance elements and reports centroid position, ov
 
 In the development version of Pybricks 4.x there is an issue with occasional disconnects. The issue will be resolved with versions 4.0.0-b11 and later, see https://github.com/pybricks/support/issues/2698. See also the folder `hub-firmware` of this repository for a patched firmware.
 
+## Sensor Firmware
+
+The folder `sensor-firmware` contains the latest firmware binary for the FloorPro V3 sensor itself, along with instructions for flashing it via `dfu-util`. See [`sensor-firmware/README.md`](sensor-firmware/README.md).
+
 
 ## Files
 
